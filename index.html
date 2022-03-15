@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Add at the top of your body  before the H1-->
+    <div class="LoginCtrl">
+        <div class="LoginWait">Game Loading...</div>
+        <div class="LoginNo">
+            <button onclick="myFirebase.googleLogin()">Login With Google</button>
+        </div>
+        <div class="LoginYes">
+            <div class="Username"></div>
+            <button onclick="myFirebase.googleLogout()">Logout</button>
+        </div>
+    </div>
+
+    <!--<div class="LoginCtrl2">
+        <div class="LoginWait">Game Loading...</div>
+        <div class="LoginNo">
+            <button onclick="myFirebase.emailLogin()">Login With Github</button>
+        </div>
+        <div class="LoginYes">
+            <div class="Username"></div>
+            <button onclick="myFirebase.emailLogout()">Logout</button>
+        </div>
+    </div>-->   
+
+    <h1>Connect 4</h1>
+
+    <!-- Add this after your H1 -->
+    <div class="LoginWait">
+    <h2>Game Loading...</h2>
+    </div>
+    <div class="LoginNo">   
+    <h2>Please log in...</h2>
+    </div>
+
+    <div class="LoginYes">
+        <!--<button onclick="displayList()">Start Game</button>
+        <button onclick="deleteList()">Clear All</button>-->
+
+        <!--<div id="myCounter2">
+            <h3>Done Count: </h3>
+            <h1 id="counterDone">0</h1>
+        </div>-->
+        
+        <div id="myCounter1">
+            <h1 id="counterAmount">Red Turn</h1>
+        </div>
+        
+        <hr>
+        <body onload= "displayList()"></body>
+        <div id="mydiv"></div>
+        <hr>
+    </div>
+
+
+
+    <!-- The core firebase JS SDK is always required and must be loaded first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+<!-- for DB -->
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyCam4uA1VLJIZU_V7EroIyS5onMgmFzKOc",
+  authDomain: "connect4project-1bc75.firebaseapp.com",
+  projectId: "connect4project-1bc75",
+  storageBucket: "connect4project-1bc75.appspot.com",
+  messagingSenderId: "597315920347",
+  appId: "1:597315920347:web:b47e9d7d4c1cdb5f1d47fe",
+
+  databaseURL: "https://connect4project-1bc75-default-rtdb.firebaseio.com/",
+  //storageBucket: "test-csci2022-luckywoods.appspot.com"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+</script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+
+
+<script src="myFirebase.js"></script>
+<!-- for DB -->
+<script src="myFirebaseDB.js"></script>
+
+<script src="todo.js"></script>
+
+</body>
+</html>

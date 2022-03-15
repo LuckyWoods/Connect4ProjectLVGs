@@ -1,0 +1,66 @@
+#mynewItem{
+    float: left;
+}
+
+body{
+    background-color: grey;
+}
+
+#myCounter1{
+    background-color: lightgrey;
+    color: red;
+    width: 120px;
+    border: 1px solid black;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#mydiv{
+    color: red;
+    background-color: blue;
+    width: 170px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+    ;
+}
+
+#Del:hover{
+    color: red;
+
+}
+
+.lisChild{
+    color: red;
+}
+
+
+
+.LoginCtrl {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    text-align: right;
+    margin-right: 30px;
+
+}
+    
+.LoginCtrl2 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    text-align: right;
+    padding-right: 2px;
+}
+
+.LoginYes,
+.LoginNo {
+    display: none;
+}
+    
+.LoginWait {
+    display: block;
+}
