@@ -7,7 +7,7 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
-h1 {
+header h1 {
     font-family: 'Press Start 2P', cursive;
     text-align: center;
     font-size: 50px;
@@ -22,6 +22,28 @@ h1 {
                -14px 14px #eeff41,
                -16px 16px #f9a825,
                -18px 18px #ff5722;
+}
+
+.Username {
+    font-size: large;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    margin-top: 4%;
+}
+
+.loginButton {
+    font-size: large;
+    margin: 3%;
+    padding: 5%;
+    border-radius: 4px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    /* box-shadow: 0 0 5px rgb(160, 160, 160); */
+}
+
+.loginButton:hover {
+    opacity: 80%;
+    cursor: pointer;
 }
 
 #myCounter1{
