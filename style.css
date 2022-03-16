@@ -3,7 +3,25 @@
 }
 
 body{
-    background-color: grey;
+    background-color: rgb(190, 191, 192);
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    text-shadow: -1px 1px #000000,
+                -2px 2px #ef3550,
+               -4px 4px #f48fb1,
+               -6px 6px #7e57c2,
+               -8px 8px #2196f3,
+               -10px 10px #26c6da,
+               -12px 12px #43a047,
+               -14px 14px #eeff41,
+               -16px 16px #f9a825,
+               -18px 18px #ff5722;
 }
 
 #myCounter1{
