@@ -114,12 +114,12 @@ function load() {
 
 let board = [ [1, 2, 3, 4, 5, 6, 7], [8, 9, 10, 11, 12, 13, 14], 
 [15, 16, 17, 18, 19, 20, 21], [22, 23, 24, 25, 26, 27, 28], [29, 30, 31, 32, 33, 34, 35], [26, 37, 38, 39, 40, 41, 42] ]
-let boardPiece = [ ['⬤', '⬤', '⬤', '⬤', '⬤', '⬤', '⬤'], 
-    ['⬤', '⬤', '⬤', '⬤', '⬤', '⬤', '⬤'],
-    ['⬤', '⬤', '⬤', '⬤', '⬤', '⬤', '⬤'],
-    ['⬤', '⬤', '⬤', '⬤', '⬤', '⬤', '⬤'],
-    ['⬤', '⬤', '⬤', '⬤', '⬤', '⬤', '⬤'],
-    ['⬤', '⬤', '⬤', '⬤', '⬤', '⬤', '⬤'],
+let boardPiece = [ ['▩', '▩', '▩', '▩', '▩', '▩', '▩'], 
+    ['▩', '▩', '▩', '▩', '▩', '▩', '▩'],
+    ['▩', '▩', '▩', '▩', '▩', '▩', '▩'],
+    ['▩', '▩', '▩', '▩', '▩', '▩', '▩'],
+    ['▩', '▩', '▩', '▩', '▩', '▩', '▩'],
+    ['▩', '▩', '▩', '▩', '▩', '▩', '▩']
 ]
 
 function displayList(){
@@ -134,7 +134,7 @@ function displayList(){
             h += '<div = "buttonDiv">';
             }
             else{
-            h += '<div = "lisChild">';
+            h += '<div = "lisDiv">';
             }
             for(let j = 0; j < 7; j++) {
                 //let li= myList[lli];
@@ -147,18 +147,18 @@ function displayList(){
                     if(numbers[i][j] == 1){
                     //Make as a flag
                         h += '<span = "lisChild">' 
-                        + '▨' + " " 
+                        + boardPiece[i][j] + " " 
                         + '</span>';
                     }
                     else if(numbers[i][j ] == 2){
                         //Make as a flag
                             h += '<span = "lisChild">' 
-                            + '▧' + " " 
+                            + boardPiece[i][j] + " " 
                             + '</span>';
                         }
                     else{
                     h += '<span = "lisChild">' 
-                    + '▩' + " "
+                    +  boardPiece[i][j] + " "
                     + '</span>';
                     }
                     countLoop++;
@@ -198,7 +198,7 @@ function changeItem(let){
     if(myLine[let] >= 0 && changeColor == 1){
         let numb = myLine[let];
         numbers[numb][let] = 1;
-
+        boardPiece[numb][let] = '▨'; 
         changeColor = 2;
         myLine[let]--;
     }
@@ -206,7 +206,7 @@ function changeItem(let){
     else if(myLine[let] >= 0 && changeColor == 2){
         let numb = myLine[let];
         numbers[numb][let] = 2;
-
+        boardPiece[numb][let] = '▧'; 
         changeColor = 1;
         myLine[let]--;
     }
