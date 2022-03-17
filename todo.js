@@ -3,9 +3,6 @@ let counterDone = document.querySelector("#counterDone");*/
 /*let counterList = 0;
 let counterDoneList = 0;*/
 
-
-// TEST FIXME
-
 let myList = [
 
 ];
