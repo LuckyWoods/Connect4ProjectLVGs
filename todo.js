@@ -119,6 +119,9 @@ let boardPiece = [ ['▩', '▩', '▩', '▩', '▩', '▩', '▩'],
     ['▩', '▩', '▩', '▩', '▩', '▩', '▩']
 ]
 
+
+
+
 function displayList(){
     let div = document.getElementById('mydiv');
     let h = '';
@@ -144,18 +147,18 @@ function displayList(){
                     if(numbers[i][j] == 1){
                     //Make as a flag
                         h += '<span = "lisChild">' 
-                        + boardPiece[i][j] + " " 
+                        + '<img src="../images/Red.png">' + " " 
                         + '</span>';
                     }
                     else if(numbers[i][j ] == 2){
                         //Make as a flag
                             h += '<span = "lisChild">' 
-                            + boardPiece[i][j] + " " 
+                            + '<img src="../images/Orange.png">' + " " 
                             + '</span>';
                         }
                     else{
                     h += '<span = "lisChild">' 
-                    +  boardPiece[i][j] + " "
+                    +  '<img src="../images/Black.png" >' + " "
                     + '</span>';
                     }
                     countLoop++;
