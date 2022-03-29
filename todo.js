@@ -280,14 +280,6 @@ function displayList(){
     for(let i = 0; i < 7; i++){
         checkHeight(i);
     }
-
-    if(win == 1){
-        gameOverAlertRed();
-    }
-    else if(win == 2){
-        gameOverAlertOrange();
-    }
-    
     console.log("Here is the html: ", h)
 }
 
@@ -315,31 +307,53 @@ function changeItem(let){
 
     //}
     displayList();
+    if(win == 1){
+        gameOverAlertRed();
+    }
+    else if(win == 2){
+        gameOverAlertOrange();
+    }
 
 }
 
 function gameOverAlertRed(){
-    if(confirm("Red Wins!!!")){
-        reStart();
-    }
-    else{
-    }
+    setTimeout(() => {
+        if(confirm("Red Wins!!!")){
+            win = 0;
+            reStart();
+        }
+        else{
+        }
+    }, 1000);
+
 }
 
 function gameOverAlertOrange(){
-    if(confirm("Orange Wins!!!")){
-        reStart();
-    }
-    else{
-    }
+    setTimeout(() => {
+        if(confirm("Orange Wins!!!")){
+            win = 0;
+            reStart();
+        }
+        else{
+        }
+    }, 1000);
 }
 
 function reStart(){
-    for(let i = 0; i < 6; i++) {
+    /*for(let i = 0; i < 6; i++) {
         for(let j = 0; j < 7; j++) {
             boardPiece[i][j] = "Blank"; 
         }
-    }
+    }*/
+    boardPiece = [     ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "Blank"], 
+    ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "Blank"],
+    ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "Blank"],
+    ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "Blank"],
+    ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "Blank"],
+    ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "Blank"]];
+    myLine = [[5], [5], [5], [5], [5], [5], [5]];
+
+
     changeColor = 1;
     colorTurn.innerText = "Red Turn";
     displayList();
