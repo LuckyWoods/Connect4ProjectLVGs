@@ -1,23 +1,7 @@
-/*let counterAmount = document.querySelector("#counterAmount");
-let counterDone = document.querySelector("#counterDone");*/
-/*let counterList = 0;
-let counterDoneList = 0;*/
 let colorTurn = document.querySelector("#colorTurn");
 
 
 // TEST FIXME
-
-let myList = [
-
-];
-
-function addItem(){
-    myList.push({name:n});
-    //AddCount();
-    save();
-    displayList();
-    myList.reduce
-}
 
 function save(){
     setData(DB_PATH + DEFAULT_TODO, boardPiece);
@@ -77,6 +61,9 @@ let boardPiece = [     ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "B
     ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "Blank"],
     ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "Blank"]
 ];
+
+//let myLine = [[5], [5], [5], [5], [5], [5], [5]];
+
 
 /*let boardPiece = [     [], 
     [],
