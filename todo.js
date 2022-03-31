@@ -19,70 +19,8 @@ function addItem(){
     myList.reduce
 }
 
-/*function AddCount(){
-    counterList++;
-    counterAmount.innerText = counterList;
-}
-
-function AddDonCount(){
-    counterDoneList++;
-    counterDone.innerText = counterDoneList;
-}
-
-function SubCount(){
-    counterList--;
-    counterAmount.innerText = counterList;
-}
-
-function SubDonCount(){
-    counterDoneList--;
-    counterDone.innerText = counterDoneList;
-}*/
-
-/*var delCheck = false;
-function deleteAlert(){
-    if(confirm("Are you sure you want to delete this?")){
-        delCheck = true;
-    }
-    else{
-        delCheck = false;
-    }
-  }
-*/
-
-/*
-function deleteItem(let){
-    deleteAlert();
-    if(delCheck == true){
-        if(let >-1){
-            if(myList[let].done){
-                SubDonCount();
-            }
-            myList.splice(let, 1);
-            SubCount();
-            save();
-        }
-
-        displayList();
-    }
-}
-*/
-
-/*
-function deleteList(){
-    myList.splice(0, myList.length);
-    counterList = 0;
-    counterDoneList = 0;
-    counterAmount.innerText = counterList;
-    counterDone.innerText = counterDoneList;
-    save();
-    displayList();
-}
-*/
-
-/*
 function save(){
-    setData(DB_PATH + DEFAULT_TODO, myList);
+    setData(DB_PATH + DEFAULT_TODO, boardPiece);
 }
 
 var flag = false;
@@ -91,18 +29,36 @@ function load() {
     if (!flag) {
         flag = true;
         watchData(DB_PATH + DEFAULT_TODO, data => {
-            if (date != null){
-                myList = data;
-            }
+            //if (data != boardPiece){
+            boardPiece = data;
+            //}
             
-            counterList = myList.length;
-            counterAmount.innerText = counterList;
-            let counterCheck = 0;
-            for(let lli in myList) {
-                if(myList[lli].done){
-                    counterCheck++;
+
+            let redTurn = 0;
+            let orangeTurn = 0;
+            for(let i = 0; i < 6; i++) {
+                for(let j = 0; j < 7; j++) {
+                    if(boardPiece[i][j] == "Red"){
+                        //myLine[j]--;
+                        redTurn++
+                    }
+
+                    else if(boardPiece[i][j] == "Orange"){
+                        //myLine[j]--;
+                        orangeTurn++
+                    }
                 }
             }
+
+            if(redTurn <= orangeTurn){
+                colorTurn.innerText = "Red Turn";
+                changeColor = 1;
+            }
+            else if(redTurn >= orangeTurn){
+                colorTurn.innerText = "Orange Turn";
+                changeColor = 2;
+            }
+
             //counterDoneList = counterCheck;
             //counterDone.innerText = counterDoneList;
             displayList();
@@ -110,7 +66,6 @@ function load() {
     }
 
 }
-*/
 
 
 let board = [ [1, 2, 3, 4, 5, 6, 7], [8, 9, 10, 11, 12, 13, 14], 
@@ -121,7 +76,15 @@ let boardPiece = [     ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "B
     ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "Blank"],
     ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "Blank"],
     ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "Blank"]
-]
+];
+
+/*let boardPiece = [     [], 
+    [],
+    [],
+    [],
+    [],
+    []
+];*/
 
 let vicCheckRow = 0;
 let vicCheckCol = 0;
@@ -218,14 +181,11 @@ function checkHeight(let){
 }
 
 function displayList(){
-    /*h += '<div id="myCounter1">' +
-            '<h1 id="counterAmount"> Red Turn</h1>' +
-    '</div>';*/
     let div = document.getElementById('mydiv');
     let h = '';
-    //h = '<ul>\r\n';
+    h = '<ul>\r\n';
     let countLoop = 1;
-    //console.log(myList);
+    console.log(boardPiece);
 
     for(let i = -1; i < 6; i++) {
         if(i == -1){
@@ -237,13 +197,12 @@ function displayList(){
         }
 
         for(let j = 0; j < 7; j++) {
-                //let li= myList[lli];
-                //console.log(li.name);
             if(i == -1){
                 h += '<button onclick="changeItem(' + j + ')">X</button>';
             }
 
             else{
+                console.log(boardPiece[i][j]);
                 vicCheckCol = j;
                 if(boardPiece[i][j] == "Red"){
                 //Make as a flag
@@ -273,7 +232,7 @@ function displayList(){
             
     }
     countLoop = 0;
-    //h += '<ul>';
+    h += '<ul>';
     div.innerHTML =  h;
     vicCheckCol = 0;
     vicCheckRow = 0;
@@ -289,24 +248,24 @@ let changeColor = 1;
 function changeItem(let){
     if(myLine[let] >= 0 && changeColor == 1){
         let numb = myLine[let];
-        //numbers[numb][let] = 1;
         boardPiece[numb][let] = "Red"; 
         changeColor = 2;
         colorTurn.innerText = "Orange Turn";
+        boardPiece.push();
         myLine[let]--;
     }
 
     else if(myLine[let] >= 0 && changeColor == 2){
         let numb = myLine[let];
-        //numbers[numb][let] = 2;
         boardPiece[numb][let] = "Orange"; 
         changeColor = 1;
         colorTurn.innerText = "Red Turn";
+        boardPiece.push();
         myLine[let]--;
     }
-
-    //}
+    save();
     displayList();
+    //boardPiece.reduce;
     if(win == 1){
         gameOverAlertRed();
     }
@@ -319,7 +278,6 @@ function changeItem(let){
 function gameOverAlertRed(){
     setTimeout(() => {
         if(confirm("Red Wins!!!")){
-            win = 0;
             reStart();
         }
         else{
@@ -331,7 +289,6 @@ function gameOverAlertRed(){
 function gameOverAlertOrange(){
     setTimeout(() => {
         if(confirm("Orange Wins!!!")){
-            win = 0;
             reStart();
         }
         else{
@@ -340,47 +297,21 @@ function gameOverAlertOrange(){
 }
 
 function reStart(){
-    /*for(let i = 0; i < 6; i++) {
-        for(let j = 0; j < 7; j++) {
-            boardPiece[i][j] = "Blank"; 
-        }
-    }*/
     boardPiece = [     ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "Blank"], 
     ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "Blank"],
     ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "Blank"],
     ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "Blank"],
     ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "Blank"],
-    ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "Blank"]];
+    ["Blank", "Blank", "Blank", "Blank", "Blank", "Blank", "Blank"] ];
     myLine = [[5], [5], [5], [5], [5], [5], [5]];
 
-
+    win = 0;
     changeColor = 1;
     colorTurn.innerText = "Red Turn";
+    save();
     displayList();
 
 }
 
 
-/*function myFunction(let) {
-    
-    
-    
-    checkbox = document.getElementById("myCheck(" + let + ")");
-    if(checkbox.checked == true){
-        counterDoneList++;
-        counterDone.innerText = counterDoneList;
-        myList[let].done = true;
-        save();
-    }
-
-    else{
-        counterDoneList--;
-        counterDone.innerText = counterDoneList;
-        myList[let].done = false;
-        save();
-    }
-
-    displayList();
-}*/
-
-//this.document.onload = load();
+this.document.onload = load();
