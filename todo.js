@@ -183,7 +183,6 @@ function checkHeight(let){
 function displayList(){
     let div = document.getElementById('mydiv');
     let h = '';
-    h = '<ul>\r\n';
     let countLoop = 1;
     console.log(boardPiece);
 
@@ -232,7 +231,6 @@ function displayList(){
             
     }
     countLoop = 0;
-    h += '<ul>';
     div.innerHTML =  h;
     vicCheckCol = 0;
     vicCheckRow = 0;
