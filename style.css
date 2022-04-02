@@ -30,6 +30,7 @@ main {
 header {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 header h1 {
@@ -101,11 +102,12 @@ header img {
 }
 
 #mydiv img {
-    margin: -0.5%;
+    margin: -0.2%;
+    width: 10.3%;
 }
 
 #mydiv button {
-    margin: 0.1%;
+    margin: 0.2%;
     width: 10%;
     height: 10%;
     padding: 1%;
@@ -163,3 +165,29 @@ section {
     display: block;
 }
 
+@media only screen and (max-width: 600px) {
+    #mydiv {
+        background-color: rgba(0, 0, 0, 0);
+        width: 95%;
+        height: 95%;
+        padding: 10px;
+        text-align: center;
+    }
+
+    header {
+        margin-top: 17%;
+    }
+
+    header h1 {
+        font-size: 40px;
+    }
+
+    header img {
+        scale: 0%;
+        min-width: 0%;
+        max-width: 0%;
+        max-height: 0%;
+        object-fit: cover;
+        flex-shrink: 3;
+    }
+}
